@@ -54,7 +54,7 @@ ROOT_URLCONF = 'EntregableFinal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["C:/Users/faust/OneDrive/Desktop/Django/Entregable_Final/EntregableFinal/AppEntregable/template/AppEntregable/"],
+        'DIRS': [BASE_DIR/'AppEntregable/template'],        
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
