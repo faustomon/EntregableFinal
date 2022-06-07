@@ -46,5 +46,16 @@ Usuario (Nombre Email Contraseña Edad ... )
 Colleccion de textos (Nombre de coleccion - textos) 
 Texto (Nombre Parrafo) 
 
+-----------------------------------------------
+model usuario/Autores --- Atributos datos del usuario (Nombre Email Contraseña Edad ... ) --- busqueda Breve descripcion
+
+model es el texto --- Atributos  del texto (Titulo resumen/descripcion  parrafo tags ) ---- Buscar tags
+
+model Biblioteca --- Atributos de la Biblioteca( Nombre Direccion Horario) ---- Buscas por nombre 
+
+
+
+
+
 
 

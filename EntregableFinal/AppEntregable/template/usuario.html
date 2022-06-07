@@ -1,0 +1,17 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<center><h1>Cargar o Buscar Usuarios </h1></center>
+<body>
+    <center>
+        <button>
+            <a href="{% url 'Crear_Usuario' %}"> Crear Usuario</a>
+        </button>
+        <button>
+            <a href="{% url 'Busqueda_Usuario' %}"> Buscar Usuario</a>
+        </button>
+    </center>
+</body>
+{% endblock %}
+
