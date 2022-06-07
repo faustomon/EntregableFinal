@@ -1,5 +1,5 @@
 from django.db import models
-
+#Clase de usuario
 class Usuario(models.Model):
     nombre=models.CharField(max_length=50)
     apellido=models.CharField(max_length=50)

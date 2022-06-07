@@ -5,14 +5,17 @@ from AppEntregable.forms import UsuarioForm
 from AppEntregable.models import Usuario
 # Create your views here.
 
+#Pestaña de inicio con loader
 def inicio(self):
     plantilla = loader.get_template("inicio.html")
     documento = plantilla.render()
     return HttpResponse(documento)
 
+#Pestaña de usuario
 def usuario(request):
     return render(request, "usuario.html")
 
+#Pestaña de crear usuario con formulario
 def crear_usuario(request):
     if request.method == "POST":
         miFormulario = UsuarioForm(request.POST)
@@ -33,9 +36,10 @@ def crear_usuario(request):
     
     return render(request, "crear_usuario.html", {"miFormulario":miFormulario})
 
+#Pestaña de buscar usuario 
 def busqueda_usuario(request):
     return render(request, "busqueda_usuario.html")
-
+#Pestaña con lista de usuarios
 def buscar(request):
     if request.GET["nombre_de_usuario"]:
         nombre_de_usuario = request.GET["nombre_de_usuario"]
