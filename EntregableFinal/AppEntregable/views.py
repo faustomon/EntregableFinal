@@ -39,7 +39,7 @@ def crear_usuario(request):
 #Pestaña de buscar usuario 
 def busqueda_usuario(request):
     return render(request, "busqueda_usuario.html")
-#Pestaña con lista de usuarios
+#funcion para buscar usuario
 def buscar(request):
     if request.GET["nombre_de_usuario"]:
         nombre_de_usuario = request.GET["nombre_de_usuario"]
