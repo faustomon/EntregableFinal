@@ -1,0 +1,21 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<body>
+    <center>
+        {%if autor  %}
+        <ul> 
+            {% for autor in autor %}
+            <center><h1> Libro: {{autor.nombre_libro}} </h1></center>
+            <br>
+            <li>Nombre de Libro: {{autor.nombre_libro}}</li>
+            <li>Autor:            {{autor.autor}}</li>
+            <li>Descripcion:      {{autor.descripcion}}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <center><h1> No se encontro el libro </h1></center>
+        {% endif %}
+    </center>
+</body>
+{% endblock %}

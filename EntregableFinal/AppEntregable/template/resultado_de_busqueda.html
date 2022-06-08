@@ -3,19 +3,21 @@
 {% load static %}
 {% block contenidoQueCambia %}
     
-<center><h1> Resultados de busqueda de {{nombre_de_usuario}} </h1></center>
+
 <body>
     <center>
         {%if nombre %}
         <ul> 
             {% for nombre in nombre %}
+            <center><h1> Resultados de busqueda de {{nombre.nombre_de_usuario}} </h1></center>
             <li>Nombre de Usuario: {{nombre.nombre_de_usuario}}</li>
             <li>Nombre:            {{nombre.nombre}}</li>
             <li>Apellido:          {{nombre.apellido}}</li>
             <li>Email de Contacto: {{nombre.email}}</li>
             {% endfor %}
         </ul>
-        
+        {% else %}
+        <center><h1> No se encontro el usuario </h1></center>
         {% endif %}
     </center>
 </body>

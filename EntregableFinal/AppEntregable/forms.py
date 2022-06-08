@@ -22,3 +22,13 @@ class Biblio_form(forms.ModelForm):
             'link': forms.URLInput(attrs={'class':'form-control'}),
             'imagen': forms.URLInput(attrs={'class':'form-control'}),
         }
+
+class Libro_form(forms.ModelForm):
+    class Meta:
+        model = Libro
+        fields = '__all__'
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class':'form-control'}),
+            'autor': forms.TextInput(attrs={'class':'form-control'}),
+            'descripcion': forms.TextInput(attrs={'class':'form-control'}),
+        }
