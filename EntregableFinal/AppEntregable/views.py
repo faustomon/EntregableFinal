@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from AppEntregable.forms import UsuarioForm
-from AppEntregable.models import Usuario
+from AppEntregable.forms import *
+from AppEntregable.models import *
 # Create your views here.
 
 #Pestaña de inicio con loader
@@ -50,3 +50,36 @@ def buscar(request):
     else:
         respuesta = "no se encontro ningun usuario"
     return HttpResponse(respuesta)
+
+def bibliotecas(request):
+    return render(request,'bibliotecas.html')
+
+def biblio_list(request):
+    bibliotecas = Bibliotecas.objects.all()
+    context = {'bibliotecas':bibliotecas}
+    return render(request,'biblio_list.html', context=context)
+
+def carga_biblio(request):
+    if request.method == 'GET':
+        form = Biblio_form()
+        context = {'form':form}
+        return render(request,'carga_biblio.html', context=context)
+    else:
+        form = Biblio_form(request.POST)
+        if form.is_valid():
+            nueva_biblio = Bibliotecas.objects.create(
+                nombre = form.cleaned_data['nombre'],
+                provincia = form.cleaned_data['provincia'],
+                localidad = form.cleaned_data['localidad'],
+                direccion = form.cleaned_data['direccion'],
+                apertura = form.cleaned_data['apertura'],
+                link = form.cleaned_data['link'],
+                imagen = form.cleaned_data['imagen'],
+                )   
+            context={'nueva_biblio':nueva_biblio}
+        return render(request,'carga_biblio.html', context=context)
+
+def busca_biblio(request):
+    biblioteca = Bibliotecas.objects.filter(nombre__icontains = request.GET['search'])
+    context = {'biblioteca':biblioteca}
+    return render(request,'busca_biblio.html', context=context)
